@@ -51,3 +51,24 @@ You're in the right place.
 ---
 
 *Started by the Claude builder community · March 2026 · MIT License*
+
+---
+
+## Generate Changelog Skill
+
+This repository includes `generate-changelog`, a Claude Code skill plus `bash changelog.sh` wrapper for creating a structured `CHANGELOG.md` from git history.
+
+### Setup
+
+1. Copy `generate-changelog/` and `changelog.sh` into the target repository.
+2. From the target repository root, run `bash changelog.sh` or `python generate-changelog/scripts/generate_changelog.py`.
+3. Review and commit the generated `CHANGELOG.md`.
+
+### What It Does
+
+- Reads commits since the latest git tag, or the full history when no tag exists.
+- Detects the displayed version from `package.json`, `pyproject.toml`, or the latest git tag.
+- Groups entries into `Added`, `Fixed`, `Changed`, `Removed`, and `Breaking Changes`.
+- Supports `--check`, `--since`, `--version`, `--repo`, and `--output` options.
+
+See `sample-output.md` for an example generated from a real local git repository.
