@@ -43,6 +43,29 @@ You're in the right place.
 
 ---
 
+## Destructive Bash Blocker Hook
+
+This repository includes a Claude Code `PreToolUse` hook that blocks dangerous Bash commands before execution.
+
+### Install
+
+1. `chmod +x install.sh`
+2. `./install.sh`
+
+The installer copies `hooks/block_destructive_bash.py` to `~/.claude/hooks/` and registers it in `~/.claude/settings.json`.
+
+### Blocked Patterns
+
+- `rm -rf`
+- `DROP TABLE`
+- `git push --force` and `git push --force-with-lease`
+- `TRUNCATE`
+- `DELETE FROM` without a `WHERE` clause
+
+Every blocked attempt is appended to `~/.claude/hooks/blocked.log` as JSON with timestamp, attempted command, project path, and reason. Safe Bash commands produce no output and continue normally.
+
+---
+
 ## Community
 
 - 🐦 X: [@ClaudeBounty](https://x.com/ClaudeBounty)
