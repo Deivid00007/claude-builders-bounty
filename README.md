@@ -43,6 +43,22 @@ You're in the right place.
 
 ---
 
+## Next.js SQLite CLAUDE.md Template
+
+This repository includes an opinionated `CLAUDE.md` for a greenfield Next.js 15 App Router SaaS using SQLite through `better-sqlite3` or Turso/libSQL.
+
+The template covers stack choices, project structure, naming conventions, migration rules, component patterns, dev commands, anti-patterns, and Claude Code working rules. Every major rule includes a reason so Claude Code has project-specific guidance instead of generic framework advice.
+
+Validation:
+
+```bash
+python tests/validate_claude_template.py
+```
+
+The example target project tree is in `examples/next-sqlite-saas-tree.txt`.
+
+---
+
 ## Community
 
 - 🐦 X: [@ClaudeBounty](https://x.com/ClaudeBounty)

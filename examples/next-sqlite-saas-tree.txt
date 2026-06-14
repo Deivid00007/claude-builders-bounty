@@ -1,0 +1,27 @@
+.
+├── app
+│   ├── (auth)
+│   ├── (marketing)
+│   ├── dashboard
+│   └── api
+├── components
+│   ├── dashboard
+│   ├── forms
+│   └── ui
+├── db
+│   ├── client.ts
+│   ├── migrations
+│   └── schema.ts
+├── features
+│   ├── billing
+│   ├── organizations
+│   ├── projects
+│   └── users
+├── lib
+│   ├── auth.ts
+│   ├── env.ts
+│   ├── errors.ts
+│   └── safe-action.ts
+└── tests
+    ├── e2e
+    └── unit
