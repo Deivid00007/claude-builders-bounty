@@ -43,6 +43,41 @@ You're in the right place.
 
 ---
 
+## Claude PR Reviewer Agent
+
+This repository includes a Claude Code sub-agent plus CLI for reviewing GitHub pull requests and returning a structured Markdown comment.
+
+### Setup
+
+1. Copy `.claude/agents/pr-reviewer.md` into a Claude Code project.
+2. Add `bin/` to your `PATH`, or run the script directly with `python scripts/claude_review.py`.
+3. Review a PR:
+
+```bash
+claude-review --pr https://github.com/owner/repo/pull/123
+```
+
+The CLI fetches the PR diff, builds the sub-agent prompt, and invokes `claude --agent pr-reviewer -p` when the Claude CLI is available. If Claude is unavailable, it falls back to a deterministic local reviewer so CI and demos still produce the required structured Markdown.
+
+### Output Format
+
+Every review contains:
+
+- `## Summary`
+- `## Identified Risks`
+- `## Improvement Suggestions`
+- `## Confidence`
+
+### GitHub Action
+
+`.github/workflows/claude-review.yml` runs the reviewer on pull requests and posts the generated Markdown comment with `gh pr comment`.
+
+### Samples
+
+Sample outputs for two real GitHub PRs are included under `samples/`.
+
+---
+
 ## Community
 
 - 🐦 X: [@ClaudeBounty](https://x.com/ClaudeBounty)
